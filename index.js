@@ -11,7 +11,7 @@ app.post('/send', async function (req, res) {
   const { name, title, email, phone, link, description } = req.body;
 
   const transporter = nodemailer.createTransport({
-    host: "smtp.ethereal.email",
+    host: "smtp-mail.outlook.com",
     port: 587,
     secure: false, // true for 465, false for other ports
     auth: {
