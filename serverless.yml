@@ -8,7 +8,10 @@ provider:
   runtime: nodejs12.x
   stage: dev
   region: us-east-1
-  useDotenv: true
+  apiGateway:
+    apiKeySourceType: HEADER
+    apiKeys:
+      - ServerlessDeployKey
   environment:
     MY_EMAIL: ${env:MY_EMAIL}
     USER: ${env:USER}
