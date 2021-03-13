@@ -1,10 +1,20 @@
 service: sevi-codes
 
+plugins:
+  - serverless-dotenv-plugin
+
 provider:
   name: aws
   runtime: nodejs12.x
   stage: dev
   region: us-east-1
+  useDotenv: true
+  environment:
+    MY_EMAIL: ${env:MY_EMAIL}
+    USER: ${env:USER}
+    PASS: ${env:PASS}
+    EMAIL_HOST: ${env:EMAIL_HOST}
+    EMAIL_PORT: ${env:EMAIL_PORT}
 
 functions:
   app:

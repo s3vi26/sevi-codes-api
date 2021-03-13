@@ -4,16 +4,15 @@ const express = require('express');
 const app = express();
 const nodemailer = require("nodemailer");
 
-const { USER, PASS, MY_EMAIL } = process.env;
+const { EMAIL_HOST, EMAIL_PORT, USER, PASS, MY_EMAIL } = process.env;
 
 app.post('/sendEmail', async function (req, res) {
-  console.log(req);
-
+  console.log(req.body);
   const { name, title, email, phone, link, description } = req.body;
-
+  console.log(name, title, email, phone, link, description)
   const transporter = nodemailer.createTransport({
-    host: "smtp-mail.outlook.com",
-    port: 587,
+    host: EMAIL_HOST,
+    port: EMAIL_PORT,
     secure: false,
     auth: {
       user: USER,
