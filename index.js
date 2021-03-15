@@ -7,7 +7,8 @@ const nodemailer = require("nodemailer");
 const { EMAIL_HOST, EMAIL_PORT, USER, PASS, MY_EMAIL } = process.env;
 
 app.post('/sendEmail', async function (req, res) {
-  const { name, title, email, phone, link, description } = JSON.parse(req.body);
+  const body = req.body.toString('utf8');
+  const { name, title, email, phone, link, description } = body;
 
   const transporter = nodemailer.createTransport({
     host: EMAIL_HOST,
